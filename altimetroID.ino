@@ -1,6 +1,13 @@
 #include <sensor.h>
 #include <bmp280.h>
 
+#define minTemp 20
+#define maxTemp 300
+#define minPr 0
+#define maxPr 500
+#define minAlt 0
+#define maxAlt 1100
+
 BMP280 bmpSensor;
 
 float TEMPERATURA;  
