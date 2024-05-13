@@ -25,20 +25,30 @@ void setup() {
 
 void loop() {
   TEMPERATURA = bmpSensor.readTemperature(); 
+   if(TEMPERATURA<=maxTemp && TEMPERATURA>=minTemp){
+    Serial.print("Temperatura: ");
+    Serial.print(TEMPERATURA);
+    Serial.println(" C");
+  }else{
+    Serial.println("Temperatura no válida");
+  }
+
   PRESION = bmpSensor.readPressure()/100; 
+  if(PRESION<=maxPr && PRESION>=minTemp){
+    Serial.print("Presion: ");
+    Serial.println(" hPa");
+  }else{
+    Serial.println("Presión no válida");
+  }
+
   ALTITUD = bmpSensor.readAltitude();
+  if(ALTITUD<=maxAlt && ALTITUD>=minAlt){
+    Serial.print("Altitud: ");
+    Serial.println(" m");
+  }else{
+    Serial.println("Altitud no válida");
+  }
 
-  Serial.print("Temperatura: "); 
-  Serial.print(TEMPERATURA);  
-  Serial.print(" C ");  
-
-  Serial.print("Presion: ");  
-  Serial.print(PRESION);  
-  Serial.println(" hPa");  
-
-  Serial.print("Altitud: ");  
-  Serial.print(ALTITUD);  
-  Serial.println(" m");  
 
   delay(5000); // demora de 5 segundos entre lecturas
 }
